@@ -1,4 +1,5 @@
 import random
+import secrets
 
 password_lenght = 12
 
@@ -29,7 +30,7 @@ def generate_password(password_lenght):
     global password
     for i in range(password_lenght):
         random.shuffle(poll)
-        password += random.choice(poll)
+        password += secrets.choice(poll)
 
     return password
 
