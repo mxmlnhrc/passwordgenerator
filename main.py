@@ -35,5 +35,13 @@ def generate_password(password_lenght):
     return password
 
 
-password = generate_password(password_lenght)
-print(password)
+while True:
+    print("Welcome, Create a new password")
+    try:
+        password_lenght = int(
+            input("How long should the password be?\nLeave blank(12)\n>>>"))
+        if password_lenght == '':
+            password_lenght = 12
+
+    except ValueError:
+        print("Please select a valid number")
