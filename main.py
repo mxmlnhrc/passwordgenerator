@@ -1,4 +1,6 @@
-import string
+import random
+
+password_lenght = 12
 
 small_letters = [
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
@@ -17,3 +19,20 @@ symbols = [
     '?', "=", '}', ']', ')', '[', '(', '{', '/', '&', '%', '$', '§', '!', '°',
     '^', '"'
 ]
+
+poll = small_letters + upper_letters + numbers + symbols
+
+password = ""
+
+
+def generate_password(password_lenght):
+    global password
+    for i in range(password_lenght):
+        random.shuffle(poll)
+        password += random.choice(poll)
+
+    return password
+
+
+password = generate_password(password_lenght)
+print(password)
