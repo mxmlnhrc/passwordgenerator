@@ -26,6 +26,13 @@ poll = small_letters + upper_letters + numbers + symbols
 password = ""
 
 
+def congrats(pw):
+    print("****************************")
+    print("This is your new password")
+    print(pw)
+    print("****************************")
+
+
 def generate_password(password_lenght):
     global password
     for i in range(password_lenght):
@@ -40,13 +47,28 @@ while True:
     print("Welcome, Create a new password")
     try:
         password_lenght = int(
-            input("How long should the password be?\nLeave blank(12)\n>>>"))
+            input("How long should the password be?\nLeave blank(12)\n>>> "))
         if password_lenght == '':
             password_lenght = 12
 
     except ValueError:
-        print("Please select a valid number")
+        pass
 
     password = generate_password(password_lenght)
 
     print(password)
+
+    print(f"Do you want to get {password}?")
+    print("[y/N]")
+
+    user_in = input(">>> ")
+
+    if user_in.lower() == 'q':
+        break
+    elif user_in.lower() == "y":
+        congrats(password)
+    elif user_in.lower() == "n":
+        continue
+    else:
+        print("We couldn't find this comand!")
+        user_in = input("Press any key to continue")
