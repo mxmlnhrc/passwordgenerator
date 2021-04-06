@@ -36,6 +36,7 @@ def generate_password(password_lenght):
 
 
 while True:
+    password = ""
     print("Welcome, Create a new password")
     try:
         password_lenght = int(
@@ -45,3 +46,7 @@ while True:
 
     except ValueError:
         print("Please select a valid number")
+
+    password = generate_password(password_lenght)
+
+    print(password)
