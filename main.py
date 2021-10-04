@@ -1,5 +1,7 @@
+import os
 import random
 import secrets
+import platform
 
 password_lenght = 12
 
@@ -23,15 +25,19 @@ symbols = [
 
 poll = small_letters + upper_letters + numbers + symbols
 
-password = ""
+command = str()
 
+if platform.system() == "Window":
+  command = "cls"
+else:
+  command = "clear"
 
 def congrats(pw):
-    print("****************************")
-    print("This is your new password")
-    print(pw)
-    print("****************************")
-
+    print("*********************************\n","This is your new password\n",pw,"\nPress the Enter to continue, or q to quit\n","*********************************")
+    user_in = input(">>>")
+    os.system(command)
+    if user_in == "q":
+        exit()
 
 def generate_password(password_lenght):
     global password
@@ -62,7 +68,7 @@ while True:
     print("[y/N]")
 
     user_in = input(">>> ")
-
+    os.system(command)
     if user_in.lower() == 'q':
         break
     elif user_in.lower() == "y":
